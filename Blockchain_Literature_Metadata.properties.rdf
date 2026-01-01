@@ -1,0 +1,565 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="urn:absolute:blockchain#"
+     xml:base="urn:absolute:blockchain"
+     xmlns:blm="http://example.org/blm#"
+     xmlns:ont="http://www.co-ode.org/ontologies/ont.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="urn:absolute:blockchain">
+        <owl:versionIRI rdf:resource="urn:absolute:blockchain"/>
+        <rdfs:comment>Ontology about co-authorship in Blockchain field</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#date -->
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://example.org/blm#citedBy -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/blm#citedBy">
+        <owl:inverseOf rdf:resource="http://example.org/blm#cites"/>
+        <rdfs:domain rdf:resource="http://example.org/blm#CitationRelation"/>
+        <rdfs:range rdf:resource="http://example.org/blm#Paper"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.org/blm#cites -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/blm#cites">
+        <rdfs:domain rdf:resource="http://example.org/blm#CitationRelation"/>
+        <rdfs:range rdf:resource="http://example.org/blm#Paper"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.org/blm#hasAuthor -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/blm#hasAuthor">
+        <rdfs:domain rdf:resource="http://example.org/blm#Paper"/>
+        <rdfs:range rdf:resource="http://example.org/blm#Author"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.org/blm#hasInstitution -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/blm#hasInstitution">
+        <owl:inverseOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#contributeTo"/>
+        <rdfs:domain rdf:resource="http://example.org/blm#Paper"/>
+        <rdfs:range rdf:resource="http://example.org/blm#Institution"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.org/blm#hasTheme -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/blm#hasTheme">
+        <rdfs:domain rdf:resource="http://example.org/blm#Paper"/>
+        <rdfs:range rdf:resource="http://example.org/blm#Theme"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.org/blm#publishedIn -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/blm#publishedIn">
+        <rdfs:domain rdf:resource="http://example.org/blm#Paper"/>
+        <rdfs:range rdf:resource="http://example.org/blm#Journal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#belongTo -->
+
+    <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#belongTo">
+        <rdfs:domain rdf:resource="http://example.org/blm#Author"/>
+        <rdfs:range rdf:resource="http://example.org/blm#Institution"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#contributeTo -->
+
+    <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#contributeTo">
+        <rdfs:domain rdf:resource="http://example.org/blm#Institution"/>
+        <rdfs:range rdf:resource="http://example.org/blm#Paper"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://example.org/blm#abstract -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/blm#abstract">
+        <rdfs:domain rdf:resource="http://example.org/blm#Paper"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/blm#address -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/blm#address">
+        <rdfs:domain rdf:resource="http://example.org/blm#Author"/>
+        <rdfs:domain rdf:resource="http://example.org/blm#Institution"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/blm#affiliation -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/blm#affiliation">
+        <rdfs:domain rdf:resource="http://example.org/blm#Author"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/blm#authorID -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/blm#authorID">
+        <rdfs:domain rdf:resource="http://example.org/blm#Author"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/blm#authorOrderNumber -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/blm#authorOrderNumber">
+        <rdfs:domain rdf:resource="http://example.org/blm#Paper"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/blm#category -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/blm#category">
+        <rdfs:domain rdf:resource="http://example.org/blm#Paper"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/blm#citationCount -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/blm#citationCount">
+        <rdfs:domain rdf:resource="http://example.org/blm#CitationRelation"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/blm#citationID -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/blm#citationID">
+        <rdfs:domain rdf:resource="http://example.org/blm#CitationRelation"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/blm#citedPaperID -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/blm#citedPaperID">
+        <rdfs:domain rdf:resource="http://example.org/blm#CitationRelation"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/blm#citingPaperID -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/blm#citingPaperID">
+        <rdfs:domain rdf:resource="http://example.org/blm#CitationRelation"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/blm#doi -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/blm#doi">
+        <rdfs:domain rdf:resource="http://example.org/blm#Paper"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/blm#hIndex -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/blm#hIndex">
+        <rdfs:domain rdf:resource="http://example.org/blm#Author"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/blm#impactFactor -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/blm#impactFactor">
+        <rdfs:domain rdf:resource="http://example.org/blm#Journal"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/blm#institutionID -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/blm#institutionID">
+        <rdfs:domain rdf:resource="http://example.org/blm#Institution"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/blm#issn -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/blm#issn">
+        <rdfs:domain rdf:resource="http://example.org/blm#Journal"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/blm#journalID -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/blm#journalID">
+        <rdfs:domain rdf:resource="http://example.org/blm#Journal"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/blm#name -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/blm#name">
+        <rdfs:domain rdf:resource="http://example.org/blm#Author"/>
+        <rdfs:domain rdf:resource="http://example.org/blm#Institution"/>
+        <rdfs:domain rdf:resource="http://example.org/blm#Journal"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/blm#paperID -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/blm#paperID">
+        <rdfs:domain rdf:resource="http://example.org/blm#Paper"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/blm#publicationDate -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/blm#publicationDate">
+        <rdfs:domain rdf:resource="http://example.org/blm#Paper"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/blm#publisher -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/blm#publisher">
+        <rdfs:domain rdf:resource="http://example.org/blm#Journal"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/blm#themeDescription -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/blm#themeDescription">
+        <rdfs:domain rdf:resource="http://example.org/blm#Theme"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/blm#themeID -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/blm#themeID">
+        <rdfs:domain rdf:resource="http://example.org/blm#Theme"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/blm#themeName -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/blm#themeName">
+        <rdfs:domain rdf:resource="http://example.org/blm#Theme"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/blm#title -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/blm#title">
+        <rdfs:domain rdf:resource="http://example.org/blm#Paper"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/blm#type -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/blm#type">
+        <rdfs:domain rdf:resource="http://example.org/blm#Institution"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://example.org/blm#Author -->
+
+    <owl:Class rdf:about="http://example.org/blm#Author"/>
+    
+
+
+    <!-- http://example.org/blm#CitationRelation -->
+
+    <owl:Class rdf:about="http://example.org/blm#CitationRelation"/>
+    
+
+
+    <!-- http://example.org/blm#Institution -->
+
+    <owl:Class rdf:about="http://example.org/blm#Institution"/>
+    
+
+
+    <!-- http://example.org/blm#Journal -->
+
+    <owl:Class rdf:about="http://example.org/blm#Journal"/>
+    
+
+
+    <!-- http://example.org/blm#Paper -->
+
+    <owl:Class rdf:about="http://example.org/blm#Paper"/>
+    
+
+
+    <!-- http://example.org/blm#Theme -->
+
+    <owl:Class rdf:about="http://example.org/blm#Theme"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Bimoed_research -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#Bimoed_research">
+        <rdf:type rdf:resource="http://example.org/blm#Journal"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Business -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#Business">
+        <rdf:type rdf:resource="http://example.org/blm#Theme"/>
+        <blm:themeDescription>Paper about Business</blm:themeDescription>
+        <blm:themeID rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</blm:themeID>
+        <blm:themeName>Business</blm:themeName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Citation1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#Citation1">
+        <rdf:type rdf:resource="http://example.org/blm#CitationRelation"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Healthcare -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#Healthcare">
+        <rdf:type rdf:resource="http://example.org/blm#Theme"/>
+        <blm:themeDescription>Paper about healthcare</blm:themeDescription>
+        <blm:themeID rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</blm:themeID>
+        <blm:themeName>Healthcare</blm:themeName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Management -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#Management">
+        <rdf:type rdf:resource="http://example.org/blm#Journal"/>
+        <blm:impactFactor rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</blm:impactFactor>
+        <blm:issn rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</blm:issn>
+        <blm:journalID>1</blm:journalID>
+        <blm:name>Management Science</blm:name>
+        <blm:publisher>Management Resarch</blm:publisher>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#NYU -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#NYU">
+        <rdf:type rdf:resource="http://example.org/blm#Institution"/>
+        <ont:contributeTo rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Paper1"/>
+        <blm:address>Stern Sch Business, Dept Technol Operat &amp; Stat, New York, NY 10012 USA</blm:address>
+        <blm:institutionID rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</blm:institutionID>
+        <blm:name>NYU</blm:name>
+        <blm:type>University</blm:type>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Paper1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#Paper1">
+        <rdf:type rdf:resource="http://example.org/blm#Paper"/>
+        <blm:citedBy rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Paper2"/>
+        <blm:hasAuthor rdf:resource="http://www.co-ode.org/ontologies/ont.owl#1"/>
+        <blm:hasAuthor rdf:resource="http://www.co-ode.org/ontologies/ont.owl#2"/>
+        <blm:hasTheme rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Business"/>
+        <blm:publishedIn rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Management"/>
+        <blm:abstract>The core premise of permissionless blockchains is their reliable and secure operation without the need to trust any individual agent. At the heart of blockchain consensus mechanisms is an explicit cost (e.g., mining cost) for participation in the network and the opportunity to add blocks to the blockchain. A key rationale for that cost is to make attacks on the network, which could be theoretically carried out if a majority of nodes were controlled by a single entity, too expensive to be worthwhile. We demonstrate that a majority attacker can successfully attack with a negative net cost when accounting for the mining rewards the attacker collects during the attack. This shows that the protocol mechanisms are insufficient to create a secure network, emphasizing the importance of socially driven mechanisms external to the protocol. At the same time, negative cost enables a new type of majority attack that is more likely to elude external scrutiny.Resarch</blm:abstract>
+        <blm:category>Management</blm:category>
+        <blm:doi>10.1287/mnsc.2023.02426</blm:doi>
+        <blm:paperID>WOS:001152437900001</blm:paperID>
+        <blm:publicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2024</blm:publicationDate>
+        <blm:title>Zero Cost Majority Attacks on Permissionless Proof of Work Blockchains</blm:title>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Paper2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#Paper2">
+        <rdf:type rdf:resource="http://example.org/blm#Paper"/>
+        <blm:cites rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Paper1"/>
+        <blm:hasAuthor rdf:resource="http://www.co-ode.org/ontologies/ont.owl#2"/>
+        <blm:hasTheme rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Healthcare"/>
+        <blm:abstract>The clinical research faces numerous challenges, from patient enrollment to data privacy concerns and regulatory requirements to spiraling costs. Blockchain technology has the potential to overcome these challenges, thus making clinical trials transparent and enhancing public trust in a fair and open process with all stakeholders because of its distinct features such as data immutability and transparency. This paper proposes a permissioned blockchain platform to ensure clinical data transparency and provides secure clinical trial-related solutions. We explore the core functionalities of blockchain applied to clinical trials and illustrate its general principle concretely. These clinical trial operations are automated using the smart contract, which ensures traceability, prevents a posteriori reconstruction, and securely automates the clinical trial. A web-based user interface is also implemented to visualize the data from the blockchain and ease the interaction with the blockchain network. A proof of concept is implemented on Hyperledger Fabric in the case study of clinical management for multiple clinical trials to demonstrate the designed approach&apos;s feasibility. Lastly, the experiment results demonstrate the efficiency and usability of the proposed platform.</blm:abstract>
+        <blm:category>Biotechnology &amp; Applied Microbiology</blm:category>
+        <blm:doi>10.1155/2021/5554487</blm:doi>
+        <blm:paperID>WOS:000684340400002</blm:paperID>
+        <blm:publicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2023</blm:publicationDate>
+        <blm:title>A Permissioned Blockchain-Based Clinical Trial Service Platform to Improve Trial Data Transparency</blm:title>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Univ_Toronto -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#Univ_Toronto">
+        <rdf:type rdf:resource="http://example.org/blm#Institution"/>
+        <ont:contributeTo rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Paper1"/>
+        <ont:contributeTo rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Paper2"/>
+        <blm:address>Rotman Sch Management, Toronto, ON M5S 3E6, Canada</blm:address>
+        <blm:institutionID rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</blm:institutionID>
+        <blm:name>Univ Toronto</blm:name>
+        <blm:type>University</blm:type>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#1">
+        <rdf:type rdf:resource="http://example.org/blm#Author"/>
+        <ont:belongTo rdf:resource="http://www.co-ode.org/ontologies/ont.owl#NYU"/>
+        <ont:belongTo rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Univ_Toronto"/>
+        <blm:address>Univ Toronto, Rotman Sch Management, Toronto, ON M5S 3E6, Canada</blm:address>
+        <blm:affiliation>Univ Toronto</blm:affiliation>
+        <blm:authorID rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</blm:authorID>
+        <blm:authorOrderNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</blm:authorOrderNumber>
+        <blm:citationCount rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</blm:citationCount>
+        <blm:hIndex rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</blm:hIndex>
+        <blm:name>Gans, Joshua S.</blm:name>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#2">
+        <rdf:type rdf:resource="http://example.org/blm#Author"/>
+        <ont:belongTo rdf:resource="http://www.co-ode.org/ontologies/ont.owl#NYU"/>
+        <blm:address>NYU, Stern Sch Business, Dept Technol Operat &amp; Stat, New York, NY 10012 USA</blm:address>
+        <blm:affiliation>NYU</blm:affiliation>
+        <blm:authorOrderNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</blm:authorOrderNumber>
+        <blm:citationCount rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</blm:citationCount>
+        <blm:hIndex rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</blm:hIndex>
+        <blm:name>Halaburda, Hanna</blm:name>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+
